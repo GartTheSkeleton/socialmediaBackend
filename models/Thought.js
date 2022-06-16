@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+ const { Schema, model } = require('mongoose');
 const dateFormat = require('../../pizza-hunt/utils/dateFormat');
 
 const thoughtSchema = new Schema(
@@ -16,6 +16,7 @@ const thoughtSchema = new Schema(
     },
     username: {
         type: String,
+        ref: 'User',
         required: true
     },
     reactions: []

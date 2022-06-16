@@ -19,7 +19,7 @@ const userSchema = new Schema({
         validate: [validateEmail, 'Please fill a valid email address']
     },
     thoughts: [
-
+        {type: Schema.Types.ObjectId, ref: 'Thought'}
     ],
     friends: [
 
