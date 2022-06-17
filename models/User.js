@@ -10,7 +10,9 @@ const userSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true
+        unique: true,
+        minlength: 4,
+        maxlength: 32
     },
     email: {
         type: String,
@@ -22,7 +24,7 @@ const userSchema = new Schema({
         {type: Schema.Types.ObjectId, ref: 'Thought'}
     ],
     friends: [
-
+        {type: Schema.Types.ObjectId, ref: "User"}
     ]
 })
 
