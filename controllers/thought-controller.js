@@ -52,6 +52,17 @@ const thoughtController = {
         .catch(err => res.json(err))
     },
 
+    directDeleteThought({params}, res) {
+        Thought.findOneAndDelete({ _id: params.thoughtId })
+        .then (deletedThought => {
+            if (!deletedThought) {
+                return res.status(404).json({message: "No Thought with this ID."})
+            }
+            res.json(deletedThought)
+        })
+        .catch(err => res.json(err))
+    },
+
     updateThought({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId},

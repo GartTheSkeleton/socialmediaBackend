@@ -20,13 +20,17 @@ const userSchema = new Schema({
         unique: true,
         validate: [validateEmail, 'Please fill a valid email address']
     },
-    thoughts: [
-        {type: Schema.Types.ObjectId, ref: 'Thought'}
-    ],
-    friends: [
-        {type: Schema.Types.ObjectId, ref: "User"}
-    ]
+    thoughts: [],
+    friend: []
+},
+{
+    toJSON: {
+        virtuals: true,
+        getters: true
+    },
+    id: false
 })
+
 
 const User = model('User', userSchema);
 
